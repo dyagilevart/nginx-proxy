@@ -5,17 +5,16 @@ FROM node:lts AS development
 
 # Set working directory
 WORKDIR /app
+COPY ../../.. /app
 
 # Same as npm install
-RUN npm ci
-
-COPY ../../ /app
+RUN npm i
 
 ENV CI=true
 
 FROM development AS build
 
-RUN nx run react:build
+RUN npx nx build react
 
 # 2. For Nginx setup
 FROM nginx:alpine
@@ -29,7 +28,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copy static assets from builder stage
-COPY --from=build /app/dist/react .
+COPY --from=build /app/dist/apps/react .
 
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
