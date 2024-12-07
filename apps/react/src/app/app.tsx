@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
+import { SendReqBtn } from './sendReqBtn';
 
 const StyledApp = styled.div`
   // Your style here
@@ -8,7 +8,9 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="react" />
+      <SendReqBtn url="/api1/myIp"/>
+      <br />
+      <SendReqBtn url="/api2/myIp"/>
     </StyledApp>
   );
 }
