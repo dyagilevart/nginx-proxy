@@ -15,14 +15,14 @@ services:
       dockerfile: ./apps/nest/first.Dockerfile
     restart: unless-stopped
     ports:
-      - 3001:80
+      - 3001:3001
   proxy2:
     build:
       context: ./
       dockerfile: ./apps/nest/second.Dockerfile
     restart: unless-stopped
     ports:
-      - 3002:80
+      - 3002:3002
 
   frontend:
     build:

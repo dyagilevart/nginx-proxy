@@ -8,6 +8,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
+      
       <span>front nginx => nodeJS</span> 
       <br/>
       <SendReqBtn url="/api/myIp"/>
@@ -21,6 +22,7 @@ export function App() {
       <br />
 
       <span>front nginx => nginx2 => nodeJS</span>
+      <br />
       <SendReqBtn url="/api2/myIp"/>
     </StyledApp>
   );

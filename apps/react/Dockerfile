@@ -5,12 +5,12 @@ FROM node:lts AS development
 
 # Set working directory
 WORKDIR /app
+
+COPY ../../package.json /app/package.json
+
+RUN npm i
+
 COPY ../../.. /app
-
-# Same as npm install
-RUN npm ci
-
-ENV CI=true
 
 FROM development AS build
 
