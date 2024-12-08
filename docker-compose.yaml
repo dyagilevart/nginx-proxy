@@ -2,24 +2,31 @@ version: '3.7'
 
 services:
 
-  # backend1:
-  #   build:
-  #     context: ./apps/nest
-  #     dockerfile: first.Dockerfile
-  #   restart: unless-stopped
-  #   ports:
-  #     - 3001:3000
-  # backend2:
-  #   build:
-  #     context: ./apps/nest
-  #     dockerfile: second.Dockerfile
-  #   restart: unless-stopped
-  #   ports:
-  #     - 3002:3000
+  backend:
+    build:
+      context: ./
+      dockerfile: ./apps/nest/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+  proxy1:
+    build:
+      context: ./
+      dockerfile: ./apps/nest/first.Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3001:80
+  proxy2:
+    build:
+      context: ./
+      dockerfile: ./apps/nest/second.Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3002:80
 
   frontend:
     build:
       context: ./
       dockerfile: ./apps/react/Dockerfile
     ports:
-      - 4200:4200
+      - 4200:80

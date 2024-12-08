@@ -8,8 +8,19 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
+      <span>front nginx => nodeJS</span> 
+      <br/>
+      <SendReqBtn url="/api/myIp"/>
+
+      <br/>
+
+      <span>front nginx => nginx1 => nodeJS</span>
+      <br/>
       <SendReqBtn url="/api1/myIp"/>
+
       <br />
+
+      <span>front nginx => nginx2 => nodeJS</span>
       <SendReqBtn url="/api2/myIp"/>
     </StyledApp>
   );

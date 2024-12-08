@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ../../.. /app
 
 # Same as npm install
-RUN npm i
+RUN npm ci
 
 ENV CI=true
 
